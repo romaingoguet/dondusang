@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/accueil" />
+
+    <item
+    android:id="@+id/navigation_map"
+    android:icon="@drawable/ic_search_black_24dp"
+    android:title="@string/centres" />
+
+    <item
+        android:id="@+id/navigation_donation"
+        android:icon="@drawable/ic_list_black_24dp"
+        android:title="@string/dons" />
+
+</menu>

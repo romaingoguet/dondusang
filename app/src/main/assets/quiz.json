@@ -1,0 +1,173 @@
+{
+  "questionnaire": [
+    {
+      "question": "Pesez-vous moins de 50kg ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Vous devez peser plus de 50 kg car ce poids minimum garantit votre sécurité"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous déjà eu une transfusion de sang (globules rouges, plaquettes ou plasma) ou une greffe d’organe",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Par mesure de précaution, le don de sang n’est pas possible actuellement si vous avez reçu une transfusion sanguine ou une greffe. Attention, il ne faut pas confondre transfusion et perfusion"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous une anémie ou un manque de fer ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Si vous souffrez d’anémie, vous devez attendre que votre taux d’hémoglobine revienne à la normale pour donner votre sang"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Êtes-vous enceinte ou avez-vous accouché depuis moins de 6 mois ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Pour éviter tout risque de carence, vous ne pouvez pas donner si vous êtes enceinte. Et vous devez attendre 6 mois après l’accouchement"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous ou avez-vous eu de la fièvre ou une infection (toux, diarrhée, infection urinaire, plaie cutanée…) dans les 2 dernières semaines ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Il faut attendre 15 jours après la disparition des symptômes pour donner son sang"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous eu des soins dentaires depuis moins de 24 heures (carie, détartrage), un traitement de racine ou une extraction dentaire depuis moins d’une semaine ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Le don de sang est possible un jour après un détartrage ou le traitement d’une carie et une semaine après une extraction dentaire"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous été opéré(e) ou subi une endoscopie (fibroscopie gastrique, coloscopie…) dans les 4 derniers mois ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Il faut attendre au moins 4 mois après l’opération ou l’endoscopie pour donner son sang"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous eu un piercing (boucle d’oreille compris) ou un tatouage dans les 4 derniers mois ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Pour éviter tout risque d’infection lié à une mauvaise stérilisation du matériel, vous devez attendre 4 mois après un piercing ou un tatouage pour donner votre sang"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous eu récemment des douleurs cardiaques après un effort ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Pour garantir la sécurité du donneur, le don de sang n’est pas possible quand on a des problèmes cardiaques ou que l’on a été victime d’un AVC"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous eu plus d’un partenaire sexuel dans les 4 derniers mois ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Vous ne pouvez pas donner si vous avez eu une relation sexuelle, même protégée, avec plus d’un partenaire au cours des 4 derniers mois. Cette contre-indication ne s’applique pas aux femmes ayant eu des relations sexuelles uniquement avec des femmes"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous déjà pris des drogues par voie intraveineuse ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Tout antécédent d'injection de produits stupéfiants par voie intraveineuse, même remontant à plusieurs années, constitue une contre-indication permanente au don de sang"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous connaissance de pratiques à risques chez votre partenaire (multipartenaires, drogues par voie intraveineuse) ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Selon le cas, vous devez attendre de 4 à 12 mois après le dernier contact sexuel avec ce partenaire"
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    },
+    {
+      "question": "Avez-vous voyagé dans les 4 derniers mois ?",
+      "choice": [
+        {
+          "label": "OUI",
+          "response": "Des délais de 1 à 4 mois sont à respecter au retour de certains pays."
+        },
+        {
+          "label": "NON",
+          "response": "OK"
+        }
+      ]
+    }
+  ]
+}

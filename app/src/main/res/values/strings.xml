@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Don de Sang</string>
+
+    <string name="tram_image">tram image</string>
+    <string name="clock_image">event image</string>
+    <string name="metro_image">metro image</string>
+    <string name="bus_image">bus image</string>
+    <string name="plaquettes">plaquettes</string>
+    <string name="sang">sang</string>
+    <string name="plasma">plasma</string>
+    <string name="quiz_message">Avant de vous rendre dans l’un de nos sites ou collectes et si vous avez entre 18 et 70 ans, répondez à ces quelques questions pour savoir si vous pouvez donner votre sang.</string>
+    <string name="retry">Recommencer</string>
+    <string name="can_donate">D\'après les informations indiquées, vous pouvez donner votre sang.</string>
+    <string name="check_later">Un membre du personnel médical sera en mesure de confirmer votre aptitude lors de l\'entretien pré-don le jour du don.</string>
+    <string name="indicative_values">Les réponses recueillies sont à valeur indicative et non médicale. Seul l\'entretien le jour du don en présence du personnel médical déterminera votre capacité à donner votre sang.</string>
+    <string name="voir_liste">\u0020Voir liste</string>
+    <string name="voir_carte">\u0020Voir carte</string>
+    <string name="go_to">\u0020M\'Y RENDRE</string>
+    <string name="tel_image">tel_image</string>
+    <string name="calendar_image">calendar_image</string>
+    <string name="place_image">place_image</string>
+    <string name="info_image">info_image</string>
+    <string name="date">Date</string>
+    <string name="lieu">Lieu</string>
+    <string name="blood">Sang</string>
+    <string name="plaquettesUpper">Plaquettes</string>
+    <string name="plasmaUpper">Plasma</string>
+    <string name="save">Sauvegarder</string>
+    <string name="no_don_saved">Aucun don enregistré</string>
+    <string name="next_dons">Prochains dons</string>
+    <string name="can_i">Puis-je donner mon sang ?</string>
+    <string name="looking_for">Rechercher un centre</string>
+    <string name="interrogation_image">interrogation_image</string>
+    <string name="calendar2_image">calendar2_image</string>
+    <string name="glass_image">glass_image</string>
+    <string name="show_center_error_message">Une erreur s\'est produite, veuillez recommencer</string>
+    <string name="accueil">Accueil</string>
+    <string name="centres">Centres</string>
+    <string name="dons">Historique</string>
+
+
+</resources>

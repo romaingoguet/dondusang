@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/goto_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/button_default_background"
+                    android:fontFamily="@font/nunito_regular"
+                    android:onClick="@{()->clickHandler.onClickNavigation(center)}"
+                    android:text="@string/go_to"
+                    android:drawableLeft="@drawable/ic_near_me_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/mapcenter"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!--                android:drawableStart="@drawable/ic_navigation_black_24dp"-->
+
+
+                <FrameLayout
+                    android:id="@+id/mapcenter"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:context=".views.activities.HomeActivity" />
+
+                <ImageView
+                    android:id="@+id/place_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:contentDescription="@string/place_image"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/mapcenter"
+                    app:srcCompat="@drawable/ic_place_primary_24dp" />
+
+                <ImageView
+                    android:id="@+id/info_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:contentDescription="@string/info_image"
+                    android:visibility="@{center.message == null ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/city"
+                    app:srcCompat="@drawable/ic_info_primary_24dp" />
+
+                <ImageView
+                    android:id="@+id/when_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:contentDescription="@string/clock_image"
+                    android:visibility="@{center.date.equals(Utils.CLIC_HERE) ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/details"
+                    app:srcCompat="@drawable/ic_date_range_primary_24dp" />
+
+                <ImageView
+                    android:id="@+id/hour_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:contentDescription="@string/clock_image"
+                    android:visibility="@{center.start != null ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/when"
+                    app:srcCompat="@drawable/ic_schedule_primary_24dp" />
+
+                <ImageView
+                    android:id="@+id/clock_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:contentDescription="@string/tel_image"
+                    android:visibility="@{center.tel == null ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/hour"
+                    app:srcCompat="@drawable/ic_phone_primary_24dp" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="@{center.name}"
+                    android:textColor="@color/principalText"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/place_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/mapcenter"
+                    tools:text="Name" />
+
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{center.adresse == null ? center.ville : center.adresse + ' ' + center.ville}"
+                    android:textColor="@color/principalText"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/place_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="City" />
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{center.message ?? null}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/principalText"
+                    android:visibility="@{center.message == null ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/info_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/city"
+                    tools:text="details" />
+
+                <TextView
+                    android:id="@+id/when"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{center.date}"
+                    android:textColor="@color/principalText"
+                    android:visibility="@{center.date.equals(Utils.CLIC_HERE)? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/hour_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/details"
+                    tools:text="quand" />
+
+                <TextView
+                    android:id="@+id/hour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{center.start + ` - ` + center.end}"
+                    android:textColor="@color/principalText"
+                    android:visibility="@{center.start != null ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/hour_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/when"
+                    tools:text="hour" />
+
+                <TextView
+                    android:id="@+id/tel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:onClick="@{()->clickHandler.onClickPhone(center)}"
+                    android:text="@{center.tel}"
+                    android:textColor="@color/principalText"
+                    android:visibility="@{center.tel == null ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clock_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/hour"
+                    tools:text="tel" />
+
+                <TextView
+                    android:id="@+id/plaquette"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@drawable/shape_chip_drawable"
+                    android:text="@string/plaquettes"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:visibility="@{center.plaquettes ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/sang"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/transport_constraintLayout"
+                    tools:text="plaquettes" />
+
+                <TextView
+                    android:id="@+id/sang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@drawable/shape_chip_drawable"
+                    android:text="@string/sang"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:visibility="@{center.sang ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/plasma"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/plaquette"
+                    app:layout_constraintTop_toBottomOf="@+id/transport_constraintLayout"
+                    tools:text="sang" />
+
+
+                <TextView
+                    android:id="@+id/plasma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@drawable/shape_chip_drawable"
+                    android:text="@string/plasma"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:visibility="@{center.plasma ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/sang"
+                    app:layout_constraintTop_toBottomOf="@+id/transport_constraintLayout"
+                    tools:text="plasma" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/transport_constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tel">
+
+
+                    <ImageView
+                        android:id="@+id/tram_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/tram_image"
+                        android:visibility="@{center.tram == null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/tram"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tram"
+                        app:srcCompat="@drawable/ic_tram_primary_24dp" />
+
+
+                    <ImageView
+                        android:id="@+id/bus_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:contentDescription="@string/bus_image"
+                        android:visibility="@{center.bus == null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/bus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/metro"
+                        app:srcCompat="@drawable/ic_directions_bus_primary_24dp" />
+
+
+                    <ImageView
+                        android:id="@+id/metro_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:contentDescription="@string/metro_image"
+                        android:visibility="@{center.metro == null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/metro"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tram"
+                        app:srcCompat="@drawable/ic_underground_primary_24dp" />
+
+                    <TextView
+                        android:id="@+id/bus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@{center.bus ?? null}"
+                        android:textColor="@color/principalText"
+                        android:visibility="@{center.bus == null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/bus_imageview"
+                        app:layout_constraintTop_toBottomOf="@+id/metro"
+                        tools:text="bus" />
+
+                    <TextView
+                        android:id="@+id/tram"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@{center.tram ?? null}"
+                        android:textColor="@color/principalText"
+                        android:visibility="@{center.tram == null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/tram_imageview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="tram" />
+
+                    <TextView
+                        android:id="@+id/metro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@{center.metro ?? null}"
+                        android:textColor="@color/principalText"
+                        android:visibility="@{center.metro == null ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/metro_imageview"
+                        app:layout_constraintTop_toBottomOf="@+id/tram"
+                        tools:text="metro" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="16dp" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_event_faButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/calendar_image"
+            android:onClick="@{()->clickHandler.onClickAddEventToCalendar(center)}"
+            app:srcCompat="@drawable/ic_event_white_24dp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <data>
+
+        <import type="com.romaingoguet.android.blood.utils.Utils" />
+
+        <import type="android.view.View" />
+
+        <import type="com.romaingoguet.android.blood.data.models.Post" />
+
+        <variable
+            name="clickHandler"
+            type="com.romaingoguet.android.blood.ui.center.CenterActivity.CenterActivityHandlers" />
+
+        <variable
+            name="center"
+            type="com.romaingoguet.android.blood.data.models.Result" />
+    </data>
+
+</layout>
