@@ -24,7 +24,7 @@ Ce projet est actuellement en suspend, j'espère pouvoir le reprendre un jour av
 
 Axe d'amélioration:
 - Refactorisation en utilisant Kotlin
-- Utilisation de nouvelles fonctionnalités proposé par Android (Compose, Navigation Component etc... )
+- Utilisation de nouvelles fonctionnalités proposées par Android (Compose, Navigation Component etc... )
 - Revoir tout le design
 
 Screenshot de l'application:
